@@ -12,28 +12,42 @@ public class OrderedList_inArraySlots
 
     private ArrayList<Integer> list_iAS;
 
-    /** 
+    /**
       construct order from an unordered ArrayList
      */
     public OrderedList_inArraySlots
             ( ArrayList<Integer> unordered) {
-        this();  // violates the directions for this hw
-        
-        System.out.println( 
-            "Change this to report on progress."
-          + System.lineSeparator()
-          + "You were going to do that even without prompting, right?"
-          );
+        for (int i = 0; i < unordered.size() - 1; i ++) {
+          int index = champIndex(unordered, i);
+          int min = unordered.get(index);
+          unordered.set(index, unordered.get(i));
+          unordered.set(i, min);
+          /*System.out.println(
+            unordered
+            + System.lineSeparator()
+            + "You were going to do that even without prompting, right?"
+            );*/
+        }
+        list_iAS = unordered;
     }
 
 
-    /** 
+    /**
       helper function for constructor
       Write good English here, reflecting good thinking.
-      @return ??
+      @return the index of the smallest element in the ArrayList.
+      Ignore null elements.
      */
-     private int champIndex() {
-        return 0;  // replace this line
+     private int champIndex(ArrayList<Integer> challengers, int start) {
+        int champ = Integer.MAX_VALUE;
+        int index = start;
+        for (int i = start; i < challengers.size(); i ++) {
+          if (challengers.get(i) < champ) {
+            champ = challengers.get(i);
+            index = i;
+          }
+        }
+        return index;
      }
 
 

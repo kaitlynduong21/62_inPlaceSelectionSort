@@ -5,10 +5,10 @@
 import java.util.ArrayList;  // shortcut
 
 public class UserWantsOrder {
-    
+
     public static void main(String[] commandLine) {
         System.out.println();
-        
+
         // create the data to be sorted into OL_iAS
         ArrayList<Integer> sortMe =
            new ArrayList<Integer>();
@@ -21,7 +21,7 @@ public class UserWantsOrder {
         System.out.println(
             "unordered data: " + sortMe
           + System.lineSeparator());
-          
+
         System.out.println(
             "constructed:  "
           + new OrderedList_inArraySlots( sortMe)
